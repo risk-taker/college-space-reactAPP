@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
+.upload_container {
+    background-color: #0E3A4F;
+    box-shadow: 0px 7px 14px 8px #00000017;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.drop_zone {
+    width: 30rem;
+    height: 15rem;
+    border: 2px dashed #A4EBF3;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.icon_container {
+    width: 75px;
+    height: 100px;
+    position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.icon_container img {
+    display: inline-block;
+    position: absolute;
+    transform-origin: bottom;
+    transition: transform .25ms ease-in-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.icon_container .center {
+    z-index: 2;
 }
 
-.App-link {
-  color: #61dafb;
+.dragged .icon_container .right {
+    transform: rotate(15deg) translateX(20px) scale(.9);
+    filter: grayscale(.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dragged .icon_container .left {
+    transform: rotate(-15deg) translateX(-20px) scale(.9);
+    filter: grayscale(.5);
+}
+
+.dragged .icon_container .center {
+    transform: translateY(-5px);
 }
